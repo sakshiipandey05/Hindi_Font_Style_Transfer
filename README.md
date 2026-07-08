@@ -77,9 +77,3 @@ The repository includes:
 
 Datasets, generated images, trained model weights, checkpoints, LMDB databases, and other large files are intentionally excluded from this repository.
 
----
-
-## Author
-
-**Sakshi Pandey**  
-B.Tech Information Technology
