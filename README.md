@@ -1,28 +1,19 @@
-# Hindi_Font_Style_Transfer
-Implementation and Hindi adaptation of the ICCV 2023 VQ-Font paper (Few-Shot Font Generation) along with a CNN-based Hindi Font Classification pipeline using Deep Learning and Computer Vision.
-This repository contains two related projects. The first focuses on classifying Hindi font styles using a Convolutional Neural Network (CNN), while the second adapts the VQ-Font framework for Hindi Few-Shot Font Generation, enabling the generation of unseen Hindi characters from only a few reference characters.
+# Hindi Font Style Transfer
 
-# Repository Structure
-Hindi_Font_Style_Transfer/
-│
-├── README.md
-├── Hindi_Adaptation_of_VQFont/
-│   └── Hindi_Adaptation_of_VQFont.ipynb
-├── Hindi_Font_Classification/
-│   └── Hindi_Font_Classification.ipynb
-└── Results/
-    ├── accuracy_graph.png
-    ├── loss_graph.png
-    ├── prediction_output.png
-    └── confusion_matrix.png
+This repository presents the implementation and adaptation of deep learning techniques for Hindi font analysis. It combines two major components:
 
-# Project 1: Hindi Font Classification using CNN
+1. **Hindi Font Classification** using Convolutional Neural Networks (CNN).
+2. **Hindi Adaptation of the VQ-Font (ICCV 2023)** framework for Few-Shot Font Generation.
+
+The project began by studying the original VQ-Font implementation, which was developed for **Chinese font generation**, and later adapted its workflow for **Hindi (Devanagari) fonts** by preparing a custom Hindi dataset and preprocessing pipeline.
+
+# Section 1: Hindi Font Classification using CNN
 
 ## Objective
-- Generate Hindi character images from TTF font files.
-- Create a Hindi font dataset.
+- Generate Hindi character images from TrueType (`.ttf`) font files.
+- Create a structured Hindi font dataset.
 - Train a CNN model to classify different Hindi font styles.
-- Predict the font of unseen images.
+- Predict the font class of unseen Hindi character images.
 
 ## Dataset
 - **17 Hindi Fonts**
@@ -31,49 +22,129 @@ Hindi_Font_Style_Transfer/
 - **22 Font Classes**
 
 ## Workflow
-TTF Fonts → Character Generation → Dataset Split → CSV Metadata → CNN Training → Prediction → Evaluation
+```text
+TTF Font Files
+      ↓
+Character Image Generation
+      ↓
+Dataset Preparation
+      ↓
+Train / Validation / Test Split
+      ↓
+CSV & Excel Metadata Generation
+      ↓
+CNN Model Training
+      ↓
+Prediction
+      ↓
+Model Evaluation
+```
 
-## Results
-- Accuracy Graph
-- Loss Graph
-- Prediction Output
+## Technologies
+- Python
+- TensorFlow / Keras
+- OpenCV
+- NumPy
+- Matplotlib
+- Scikit-learn
+
+## Outputs
+- Training Accuracy Graph
+- Training Loss Graph
 - Confusion Matrix
+- Font Prediction
 
-# Project 2: Hindi Adaptation of VQ-Font (Few-Shot Font Generation)
+---
+# Section 2: Hindi Adaptation of VQ-Font (Few-Shot Font Generation)
+
+This section is based on the ICCV 2023 paper:
+
+**Few-Shot Font Generation via Transferring Similarity-Guided Global Style and Quantization Local Style**
 
 ## Objective
-Adapt the **VQ-Font (ICCV 2023)** framework for Hindi by reusing the Hindi font dataset created in Project 1. The model learns the writing style from a few reference characters and generates the remaining Hindi characters in the same style.
+The original VQ-Font framework was designed for **Chinese font generation**. In this work, the framework was studied and adapted for **Hindi (Devanagari) fonts** by replacing the original Chinese dataset with a custom Hindi font dataset. The objective is to generate complete Hindi font styles from only a few reference characters while preserving both global style and local character details.
 
 ## Workflow
-Hindi Dataset → Metadata Generation → LMDB Conversion → VQ-Font Training → Checkpoint → Inference → Generated Hindi Characters
+```text
+Chinese VQ-Font Framework
+           ↓
+Replace Chinese Dataset
+           ↓
+Prepare Hindi Font Dataset
+           ↓
+Metadata Generation
+           ↓
+LMDB Dataset Preparation
+           ↓
+VQ-Font Training Pipeline
+           ↓
+Inference
+           ↓
+Generated Hindi Characters
+```
+## Work Completed
+- Studied the complete VQ-Font architecture and implementation.
+- Set up the official repository and installed all required dependencies.
+- Explored the dataset preparation and preprocessing pipeline.
+- Replaced the original Chinese dataset with a custom Hindi font dataset.
+- Generated Hindi character images and metadata for adaptation.
+- Prepared the Hindi dataset structure for future VQ-Font training.
+- Explored the VQ-VAE-based few-shot font generation pipeline.
+- Implemented the Hindi adaptation workflow for future training and inference.
 
-## Key Features
-- Hindi dataset adaptation
-- Metadata & Unicode generation
-- LMDB dataset creation
-- Few-shot font generation
-- Inference on Hindi fonts
-
-# Technologies Used
-
+## Technologies
 - Python
-- TensorFlow
 - PyTorch
-- CNN
 - VQ-Font
 - OpenCV
 - LMDB
-  
-# Results
 
-The repository includes:
+---
+# Repository Structure
+```text
+Hindi_Font_Style_Transfer/
+│
+├── README.md
+│
+├── Hindi_Adaptation_of_VQFont/
+│   ├── Hindi_Adaptation_of_VQFont.ipynb
+│   └── README.md
+│
+├── Hindi_Font_Classification/
+│   ├── models/
+│   ├── scripts/
+│   └── evaluate.py
+│
+└── Results/
+    ├── README.md
+    ├── accuracy_graph.png
+    ├── comparison_output.png
+    ├── confusion_matrix.png
+    ├── dataset.xlsx
+    └── loss_graph.png
+```
+---
+
+# Results
+The repository includes sample outputs and artifacts generated during the implementation:
 - Training Accuracy Graph
 - Training Loss Graph
-- Prediction Output
 - Confusion Matrix
+- Font Comparison Output
+- Dataset Metadata (Excel)
 
-
+---
 # Note
+To keep the repository lightweight and follow GitHub storage recommendations, the following files are **not included**:
+- Generated datasets
+- Character images
+- Trained model weights (`.keras`)
+- Checkpoints
+- LMDB databases
+- Other large files
 
-Datasets, generated images, trained model weights, checkpoints, LMDB databases, and other large files are intentionally excluded from this repository.
-
+---
+# References
+- **Few-Shot Font Generation via Transferring Similarity-Guided Global Style and Quantization Local Style (ICCV 2023)**
+- TensorFlow / Keras Documentation
+- PyTorch Documentation
