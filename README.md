@@ -14,13 +14,21 @@ The project began by studying the original VQ-Font implementation, which was dev
 - Create a structured Hindi font dataset.
 - Train a CNN model to classify different Hindi font styles.
 - Predict the font class of unseen Hindi character images.
-
+- 
 ## Dataset
-- **17 Hindi Fonts**
-- **43 Hindi Characters**
-- **1383 Images**
-- **22 Font Classes**
+The dataset was automatically generated from the following Hindi font families:
+- **Mukta**
+- **Kalam**
+- **Hind**
+- **Noto Sans Devanagari**
+- **Noto Serif Devanagari**
 
+Dataset Statistics:
+- **17 Font Variants**
+- **43 Hindi Characters**
+- **1383 Character Images**
+- **22 Font Classes**
+- 
 ## Workflow
 ```text
 TTF Font Files
@@ -39,7 +47,6 @@ Prediction
       ↓
 Model Evaluation
 ```
-
 ## Technologies
 - Python
 - TensorFlow / Keras
@@ -47,7 +54,7 @@ Model Evaluation
 - NumPy
 - Matplotlib
 - Scikit-learn
-
+- 
 ## Outputs
 - Training Accuracy Graph
 - Training Loss Graph
@@ -58,7 +65,6 @@ Model Evaluation
 # Section 2: Hindi Adaptation of VQ-Font (Few-Shot Font Generation)
 
 This section is based on the ICCV 2023 paper:
-
 **Few-Shot Font Generation via Transferring Similarity-Guided Global Style and Quantization Local Style**
 
 ## Objective
