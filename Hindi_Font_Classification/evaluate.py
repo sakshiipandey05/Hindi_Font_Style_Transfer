@@ -41,21 +41,25 @@ for class_name in class_names:
 
 # Confusion matrix
 cm = confusion_matrix(y_true, y_pred)
-sns.heatmap(cm, annot=False, xticklabels=class_names, yticklabels=class_names, cmap="Blues")
-plt.close('all')  
-plt.figure(figsize=(4,4))
+
+plt.figure(figsize=(8, 6))
 
 sns.heatmap(
     cm,
     annot=False,
+    cmap="Blues",
     xticklabels=class_names,
-    yticklabels=class_names,
-    cmap="Blues"
+    yticklabels=class_names
 )
 
-plt.xticks(rotation=45, ha='right', fontsize=7)
-plt.yticks(fontsize=7)
+plt.xticks(rotation=90, fontsize=5)
+plt.yticks(rotation=0, fontsize=5)
+
+plt.xlabel("Predicted Font", fontsize=10)
+plt.ylabel("True Font", fontsize=10)
+plt.title("Confusion Matrix", fontsize=12)
 
 plt.tight_layout()
+
+plt.savefig("confusion_matrix.png", dpi=300, bbox_inches="tight")
 plt.show()
-print(classification_report(y_true, y_pred))
